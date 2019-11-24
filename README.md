@@ -3,4 +3,4 @@ JSON data used by Sherlock, It's available on [https://sherlock-project.github.i
 
 ## License
 
-This software is released under the [MIT](https://github.com/sherlock-project/sherlock-data/blob/master/LICENSE) License.
+This software is released under the [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) License.
