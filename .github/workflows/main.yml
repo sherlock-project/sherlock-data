@@ -6,7 +6,7 @@ name: CI
 # events but only for the master branch
 on:
   schedule:
-    - cron:  '2 * * * *'
+    - cron:  '5 * * * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,3 +24,13 @@ jobs:
       - name: Sync data
         run: |
           curl -s "https://raw.githubusercontent.com/sherlock-project/sherlock/master/sherlock/resources/data.json" > data.json
+      
+      - name: Commit changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          if ! git diff --exit-code; then
+            git add *
+            git commit -m "Synced JSON data"
+            git push
+          fi
